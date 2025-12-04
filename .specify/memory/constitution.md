@@ -1,55 +1,50 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 -> 1.0.0
+- List of modified principles:
+    - Added: Spec-Driven Development
+    - Added: Evolutionary Architecture (Start Simple, Scale Later)
+    - Added: User-Centric CLI Experience (Typer + Rich)
+    - Added: Clean Architecture (MVC & Repository Pattern)
+    - Added: Type Safety & Quality (Python 3.13+, Pydantic, Testing)
+- Templates requiring updates: None (Templates are generic and reference the constitution abstractly).
+- Follow-up TODOs: None.
+-->
+
+# The Evolution of Todo (Hackathon II) Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Development
+All feature development must follow the rigorous Spec-Driven Development (SDD) lifecycle. No code is written without a corresponding Specification (`spec.md`), Technical Plan (`plan.md`), and Task breakdown (`tasks.md`). This ensures clarity, traceability, and alignment before implementation begins.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Evolutionary Architecture
+We build for the current requirements while structuring for future complexity. Phase I focuses on a robust In-Memory solution. We avoid premature optimization (like databases or microservices) but enforce interfaces (Repositories, Models) that make future transitions to persistence and distributed systems seamless.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. User-Centric CLI Experience
+The Command Line Interface is a first-class product, not a developer afterthought. We MUST use **Typer** for intuitive command parsing and **Rich** for beautiful, readable, and structured output (tables, colors, panels). User interaction should be delightful and self-documenting.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Clean Architecture
+Code must be organized to separate concerns. We strictly adhere to a layered architecture:
+- **Models:** Pure data structures (Pydantic) with validation.
+- **Repositories:** Data access logic (In-Memory now, DB later).
+- **Services/Controllers:** Business logic.
+- **CLI/UI:** Presentation layer (Typer/Rich).
+Dependencies flow inwards; the UI depends on the Repository, not the other way around.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
-
-### [PRINCIPLE_6_NAME]
-
-
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Type Safety & Quality
+We prioritize correctness and maintainability.
+- **Python 3.13+** features must be utilized.
+- **Type Hints** are mandatory for all function signatures.
+- **Pydantic** is used for robust data validation.
+- **Testing** is non-negotiable; core logic must be verified with unit tests before feature completion.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Process
+This Constitution is the supreme law of the project. Amendments require a pull request with a clear rationale and must be ratified by the project architect/owner. Changes to principles trigger a version bump (MAJOR for removals/redefinitions, MINOR for additions).
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Compliance
+All Code Reviews and Technical Plans must explicitly verify alignment with these principles. If a Plan violates a principle (e.g., bypassing the Repository pattern), it must be rejected or the Constitution amended to reflect the new reality.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-04 | **Last Amended**: 2025-12-04
